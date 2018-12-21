@@ -49,6 +49,7 @@ public class TeamRepository implements TeamDataSource {
                 @Override
                 public void onSuccess(List<Teams> data) {
                     callback.onSuccess(data);
+                    teamsDatabase.teamsDao().insert(data);
                 }
 
                 @Override

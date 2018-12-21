@@ -16,7 +16,7 @@ public class Teams {
     @PrimaryKey
     @ColumnInfo(name = "id")
     @SerializedName("idTeam")
-    private final String id;
+    private final int id;
 
     @ColumnInfo(name = "team")
     @SerializedName("strTeam")
@@ -43,7 +43,7 @@ public class Teams {
     private final String description;
 
 
-    public Teams(String id, String team, String year, String manager, String stadium, String badge, String description){
+    public Teams(int id, String team, String year, String manager, String stadium, String badge, String description){
         this.id = id;
         this.team = team;
         this.year = year;
@@ -53,7 +53,7 @@ public class Teams {
         this.description = description;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
