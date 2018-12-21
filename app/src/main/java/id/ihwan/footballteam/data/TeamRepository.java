@@ -21,10 +21,9 @@ public class TeamRepository implements TeamDataSource {
     private final TeamLocalDataSource localDataSource;
     private TeamsDatabase teamsDatabase;
 
-    public TeamRepository(TeamRemoteDataSource remoteDataSource, TeamLocalDataSource localDataSource, TeamsDatabase teamsDatabase) {
+    public TeamRepository(TeamRemoteDataSource remoteDataSource, TeamLocalDataSource localDataSource) {
         this.remoteDataSource = remoteDataSource;
         this.localDataSource = localDataSource;
-        this.teamsDatabase = teamsDatabase;
     }
 
     @Override
