@@ -2,10 +2,13 @@ package id.ihwan.footballteam.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +23,7 @@ import id.ihwan.footballteam.model.Teams;
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     public RecyclerView recyclerView;
-    private ProgressBar progressBar;
+    private GoogleProgressBar progressBar;
     private TeamAdapter adapter;
     private final List<Teams> teamsArrayList = new ArrayList<>();
     private final MainPresenter mainPresenter = new MainPresenter(Injection.provideRepository(), this);
@@ -30,9 +33,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progressBar = findViewById(R.id.progressBar);
+
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new TeamAdapter(getApplicationContext(), teamsArrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
 
@@ -42,13 +47,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void showProgress() {
-        progressBar = new ProgressBar(MainActivity.this);
-        progressBar.setVisibility(ProgressBar.VISIBLE);
+        progressBar.setVisibility(GoogleProgressBar.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
+        progressBar.setVisibility(GoogleProgressBar.GONE);
     }
 
     @Override
