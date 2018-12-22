@@ -19,7 +19,7 @@ public class TeamRemoteDataSource implements TeamDataSource {
 
     @Override
     public void getListTeams(Context context, final GetListTeamsCallback callback) {
-        Call<ResponseTeams> call = apiInterface.getAllTeams(Contract.s, Contract.c);
+        Call<ResponseTeams> call = apiInterface.getAllTeams(Contract.l);
         call.enqueue(new Callback<ResponseTeams>() {
             @Override
             public void onResponse(Call<ResponseTeams> call, Response<ResponseTeams> response) {

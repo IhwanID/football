@@ -1,6 +1,7 @@
 package id.ihwan.footballteam.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import id.ihwan.footballteam.R;
 import id.ihwan.footballteam.model.Teams;
+import id.ihwan.footballteam.view.DetailActivity;
 
 /**
  * Created by ihwan on 20,December,2018
@@ -45,6 +47,19 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         final Teams teams = teamsList.get(i);
         Glide.with(context).load(teams.getBadge()).into(viewHolder.badge);
         viewHolder.clubName.setText(teams.getTeam());
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("TEAM", teams.getTeam());
+                intent.putExtra("YEAR", teams.getYear());
+                intent.putExtra("MANAGER", teams.getManager());
+                intent.putExtra("STADIUM", teams.getStadium());
+                intent.putExtra("BADGE", teams.getBadge());
+                intent.putExtra("DESCRIPTION", teams.getDescription());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

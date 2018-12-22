@@ -12,8 +12,9 @@ public interface ApiInterface {
 
     @GET("api/v1/json/1/search_all_teams.php")
     Call<ResponseTeams> getAllTeams(
-            @Query("s") String s,
-            @Query("c") String c
+            @Query("l") String l
+//            @Query("s") String s,
+//            @Query("c") String c
     );
 
 
