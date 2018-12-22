@@ -19,7 +19,7 @@ public interface TeamsDao {
     @Insert
     void insert(List<Teams> teamsList);
 
-    @Query("SELECT * FROM teams ORDER BY id ASC")
+    @Query("SELECT * FROM teams ORDER BY team ASC")
     List<Teams> select();
 
     @Delete

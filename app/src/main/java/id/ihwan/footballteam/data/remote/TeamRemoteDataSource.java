@@ -1,6 +1,5 @@
 package id.ihwan.footballteam.data.remote;
 
-import android.arch.persistence.room.PrimaryKey;
 import android.content.Context;
 
 import id.ihwan.footballteam.adapter.Contract;

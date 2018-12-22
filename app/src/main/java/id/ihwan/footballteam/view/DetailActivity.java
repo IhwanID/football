@@ -11,8 +11,8 @@ import id.ihwan.footballteam.R;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private ImageView badge;
-    private TextView team, year, manager, stadium, description;
+    public ImageView badge;
+    public TextView team, year, manager, stadium, description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +27,14 @@ public class DetailActivity extends AppCompatActivity {
         description = findViewById(R.id.detailDescription);
 
         String strImg = getIntent().getStringExtra("BADGE");
-        String name = getIntent().getStringExtra("TEAM");
+        String strName = getIntent().getStringExtra("TEAM");
         String strYear = getIntent().getStringExtra("YEAR");
         String strDescription = getIntent().getStringExtra("DESCRIPTION");
         String strStadium = getIntent().getStringExtra("STADIUM");
         String strManager = getIntent().getStringExtra("MANAGER");
 
         Glide.with(getApplicationContext()).load(strImg).into(badge);
-        team.setText(name);
+        team.setText(strName);
         year.setText(strYear);
         manager.setText(strManager);
         description.setText(strDescription);

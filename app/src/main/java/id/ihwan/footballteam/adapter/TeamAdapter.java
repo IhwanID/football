@@ -74,7 +74,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         private final CardView cardView;
         private  final TextView clubName;
 
-        public ViewHolder(@NonNull View itemView) {
+        private ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             badge = itemView.findViewById(R.id.badge);
