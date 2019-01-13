@@ -8,13 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.List;
-
 import id.ihwan.footballteam.R;
 import id.ihwan.footballteam.model.Teams;
 import id.ihwan.footballteam.view.DetailActivity;
@@ -22,6 +20,7 @@ import id.ihwan.footballteam.view.DetailActivity;
 /**
  * Created by ihwan on 20,December,2018
  */
+
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
     private final Context context;
@@ -61,6 +60,17 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             }
         });
 
+        viewHolder.btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, teams.getTeam() + " is Awesome !");
+                sendIntent.setType("text/plain");
+                context.startActivity(sendIntent);
+            }
+        });
+
     }
 
     @Override
@@ -72,7 +82,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
         private final ImageView badge;
         private final CardView cardView;
-        private  final TextView clubName;
+        private final TextView clubName;
+        private final Button btnShare;
 
         private ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +91,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             badge = itemView.findViewById(R.id.badge);
             cardView = itemView.findViewById(R.id.cardView);
             clubName = itemView.findViewById(R.id.name);
+            btnShare = itemView.findViewById(R.id.btnShare);
 
         }
     }

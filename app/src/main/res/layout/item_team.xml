@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 <android.support.v7.widget.CardView
     android:id="@+id/cardView"
@@ -24,19 +24,38 @@
         <ImageView
             android:id="@+id/badge"
             android:src="@mipmap/ic_launcher"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:padding="8dp"/>
 
-        <TextView
-            android:id="@+id/name"
-            tools:text="Club Name"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/name"
+                tools:text="Club Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btnDetail"
+                android:text="Detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:text="Share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
